@@ -1,0 +1,289 @@
+*{
+    padding: 3px;
+    margin: 3px;
+}
+
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+p{
+    color: gray;
+}
+
+nav, .navlinks{
+    display: flex;
+}
+
+nav{
+    justify-content: space-around;
+    align-items: right;
+    height: 40px;
+}
+
+.navlinks{
+    position:absolute;
+    top: 100%;
+    list-style: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    overflow: hidden;
+    max-height: 0px;
+    right: 0;
+}
+
+.logo{
+    font-size: 30px;
+    color:darkgreen
+}
+
+.logo:hover{
+    cursor: crosshair
+}
+
+/*Hamurgar*/
+
+.hamburgermenu{
+    position: relative;
+    display: inline-block;
+   
+}
+
+.hamburgericon{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamburgericon span{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(80, 80, 80)
+}
+
+.navlinks{
+    top: 100%;
+    width: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    
+}
+
+.navlinks a{
+    display: block;
+    top: 100%;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navlinks li{
+    list-style: none;
+}
+
+.navlinks.ope span:nth-child(2){
+    max-height: 300px;
+}
+
+.hamburgericon.open span:last-child{
+    transform: rotate(-45deg) translate(10px, -5px,);
+}
+
+section {
+    padding-top: 50px;
+    height: 100px;
+    margin: 0 10rem;
+    gap: 5rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+    
+}
+
+.sectionpic-container img{
+    display: flex;
+    height: 200px;
+    width: 200px;
+    margin: auto 0;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.sectiontext{
+    align-self: center;
+    text-align: center;
+}
+
+/*slider*/
+/*aah!!!!!*/
+
+#slider{
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+    text-align: center;
+
+}
+
+#slider input[type=radio]{
+    display: none;
+}
+
+#slider label{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#slides {
+    padding: 10px;
+    border: 3px solid purple;
+    background: rgb(255, 169, 71);
+    position: relative;
+    z-index: 1;
+
+}
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+#slide1:checked ~ #slides .inner{
+    margin-left: 0;
+
+}
+
+#slide2:checked ~ #slides .inner{
+    margin-left: -100%;
+    
+}
+
+#slide3:checked ~ #slides .inner{
+    margin-left: -200%;
+    
+}
+
+#slides .inner{
+    width: 300%; 
+    line-height: 0;
+    height: 300px;
+    transition: margin-left 800ms 
+    cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+#slides .slide{
+    width: 25%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: rgb(128, 0, 107) 
+
+
+}
+
+#slide .slide_1 {
+    background: purple
+}
+
+#slide .slide_2 {
+    background: purple
+}
+
+#slide .slide_3 {
+    background: purple
+}
+
+#controls{
+    margin: -180px 0 0 0; /*TOP RIGHT BOTTM AND THEN LEFT*/
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    position: relative;
+}
+
+#controls label{
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+}
+
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(3),
+#slide3:checked ~ #controls label:nth-last-child(4) {
+    float: right;
+    margin: 0 -50px 0 0;
+    display: block;
+}
+
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(3),
+#slide3:checked ~ #controls label:nth-last-child(4) {
+    float: left;
+    margin: 0 0 0 -50px;
+    display: block;
+}
+
+#bullets{
+    margin: 150ox 0 0;
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+
+#bullets label{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background:rgb(184, 34, 159);
+    margin: 0 10px;
+}
+
+#slide1:checked ~ #bullets label:nth-child(1)
+#slide2:checked ~ #bullets label:nth-child(2)
+#slide3:checked ~ #bullets label:nth-child(3) {
+    background:rgb(128, 0, 107);
+}
+
+@media screen and (max-width: 900px) {
+    #slide1:checked ~ #controls label:nth-last-child(2),
+    #slide2:checked ~ #controls label:nth-last-child(3),
+    #slide3:checked ~ #controls label:nth-last-child(4)
+    {
+        margin: 0;
+    }
+
+#slides {
+    max-width: calc(100% - 140px);
+    margin: 0 auto;
+}
+}
+
+/*images*/
+
+#slider img[src="mxy.webp"]{
+    width: 100%;
+    padding-top: 50px;
+}
+
+#slider img[src="mxy3d.png"]{
+    width: 100%;
+    padding-top: 50px;
+}
+
+#slider img[src="mxy-wikipedia.png"]{
+    width: 100%;
+    padding-top: 50px;
+}
